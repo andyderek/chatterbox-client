@@ -31,7 +31,14 @@ app.fetch = function(){
 };
 app.clearMessages = function(){
   // use jquery to access everything in the chats id
-  $("#chats").remove();
+  $("#chats").empty();
+};
+app.addMessage = function(message){
+  // 
+  $("<div>" + message + "</div>").appendTo("#chats");
 };
 
+app.addRoom = function(room){
+  $()
+};
 
