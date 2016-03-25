@@ -36,7 +36,9 @@ describe('chatterbox', function() {
         done();
       });
 
-      it('should send the correct message along with the request', function(done){
+      it('should send the correct message along with the request', 
+        function(done){
+        console.log(result);
         var message = {
           username: 'Mel Brooks',
           text: 'It\'s good to be the king',
@@ -45,11 +47,12 @@ describe('chatterbox', function() {
 
         app.send(message);
         ajaxOptions = typeof $.ajax.args[0][0] === 'object' ? $.ajax.args[0][0] : $.ajax.args[0][1];
+        console.log("AJAX argumients", $.ajax.args);
         var result = JSON.parse(ajaxOptions.data);
         expect(result).to.deep.equal(message);
+        // console.log("###########",result)
         done();
       });
-
     });
 
     describe('fetching', function() {
