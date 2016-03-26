@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  app.init();
+ })
 
 
 var message = {
@@ -7,16 +9,19 @@ var message = {
   roomname: 'lobby'
 };
 // YOUR CODE HERE:
-$(".username").click(function(){
-  console.log("this was run");  
-})
-var app = {};
-app.init = function(para){
+var app = {
+  server: 'https://api.parse.com/1/classes/chatterbox',
+  username: 'anonymous',
+  lastMessageId: 0,
+  init: function(para){
+    //get username
+    // app.username = window.location.search.substr(10);
+    app.fetch();
+    $(".username").on('click', app.addFriend);
+  }
+};
 
   app.send = function(m, data, cb){
-    // console.log("message content is ", message);
-    // console.log("this is data ", data);
-    // console.log("this is cb", cb)
     $.ajax({
       url: 'https://api.parse.com/1/classes/chatterbox',
       type: "POST",
@@ -31,38 +36,44 @@ app.init = function(para){
       },
     });
   };
+  
   app.fetch = function(){
     $.ajax({
-      url: undefined,
+      url: 'https://api.parse.com/1/classes/chatterbox',
       type: "GET",
-      data: JSON.stringify(message),
       contentType: 'application/JSON',
-      success: function(){},
-      error: function(){},
+      data:
+      success: function(para1){
+        console.log("good for you", para1)
+      },
+      error: function(){
+        console.log("you have failed")
+      },
     })
   };
+
+
   app.clearMessages = function(){
-    // use jquery to access everything in the chats id
     $("#chats").empty();
   };
+
   app.addMessage = function(message){
-     // $(".addMessage").click(function(){
-     // console.log("Hi! You clicked this!");
-      $("<div> username: <a class='username' href='#'>" + message.username + "</a>" + message.text + "</div>").appendTo("#chats");
-    // })
+    $("<div> username: <a class='username' href='#'>" + message.username + "</a>" + message.text + "</div>").appendTo("#chats");
   };
 
   app.addRoom = function(room){
+    console.log("hello there handsome")
     $("<div>" + message + "</div>").appendTo("#roomSelect")
   };
 
   app.addFriend = function(username){
-      // $("<div>" + "Hi this will be username" + "</div>").html("#friends");
-      console.log("hi again")
+      console.log("hello")
   };
 
+  app.submit = function(){
+    console.log("submission")
+  }
 
-
-  };
- }
-)
+  app.handleSubmit = function(sub){
+    sub.preventDefault();
+  }
