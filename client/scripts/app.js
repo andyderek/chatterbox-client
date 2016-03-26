@@ -39,6 +39,10 @@ app.addMessage = function(message){
 };
 
 app.addRoom = function(room){
-  $()
+  $("<div" + message + "</div>").appendTo("#roomSelect")
+};
+
+app.addFriend = function(username){
+  $("<div class='username'" + friend + "</div>").appendTo("#main")
 };
 
