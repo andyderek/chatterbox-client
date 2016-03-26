@@ -1,7 +1,6 @@
 $(document).ready(function(){
   app.init();
- })
-
+ });
 
 var message = {
   username: 'Mel Brooks',
@@ -42,7 +41,7 @@ var app = {
       url: 'https://api.parse.com/1/classes/chatterbox',
       type: "GET",
       contentType: 'application/JSON',
-      data:
+      // data:
       success: function(para1){
         console.log("good for you", para1)
       },
@@ -72,8 +71,8 @@ var app = {
 
   app.submit = function(){
     console.log("submission")
-  }
+  };
 
   app.handleSubmit = function(sub){
     sub.preventDefault();
-  }
+  };
