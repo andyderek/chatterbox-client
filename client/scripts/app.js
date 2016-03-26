@@ -35,14 +35,18 @@ app.clearMessages = function(){
 };
 app.addMessage = function(message){
   // 
-  $("<div>" + message + "</div>").appendTo("#chats");
+  $("<div>" + "username: " + "<a class='username' href='#'>" + message.username + "</a></div>").appendTo("#chats");
 };
 
 app.addRoom = function(room){
-  $("<div" + message + "</div>").appendTo("#roomSelect")
+  $("<div>" + message + "</div>").appendTo("#roomSelect")
 };
 
 app.addFriend = function(username){
-  $("<div class='username'" + friend + "</div>").appendTo("#main")
+   $(".username").click(function(){
+   console.log("Hi! You clicked this!");
+   //  $("<div>" + username + "</div>").appendTo("#friends")
+   // ($('#main').find('.username'))
+  })
 };
 
