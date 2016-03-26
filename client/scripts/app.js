@@ -17,6 +17,7 @@ var app = {
     // app.username = window.location.search.substr(10);
     app.fetch();
     $(".username").on('click', app.addFriend);
+    $(".submit").click(app.handleSubmit());
   }
 };
 
@@ -41,7 +42,8 @@ var app = {
       url: 'https://api.parse.com/1/classes/chatterbox',
       type: "GET",
       contentType: 'application/JSON',
-      // data:
+      // displays data in the correct order
+      data: {order: '-createdAt'},
       success: function(para1){
         console.log("good for you", para1)
       },
@@ -74,5 +76,6 @@ var app = {
   };
 
   app.handleSubmit = function(sub){
-    sub.preventDefault();
+    // sub.preventDefault();
+    app.send();
   };

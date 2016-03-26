@@ -13,6 +13,7 @@ body {
     padding: 50px 60px;
     border: solid #ddd;
     border-width: 0 1px 1px 1px;
+    border-radius: 7px;
 }
 
 #main h1 {
@@ -88,6 +89,16 @@ form input[type=text] {
     float: right;
     width: 100px;
     height: 300px
+}
+#chats {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    background-color: #87CEFA;
+    padding: 50px 60px;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+    border-radius: 7px;
 }
 .glowing-border {
     border: 2px solid #dadada;
