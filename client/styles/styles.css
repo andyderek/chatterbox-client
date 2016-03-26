@@ -82,3 +82,19 @@ form input[type=text] {
 .spinner img {
     padding: 10px;
 }
+#friends{
+    background-color: #87CEFA;
+    border-radius: 7px;
+    float: right;
+    width: 100px;
+    height: 300px
+}
+.glowing-border {
+    border: 2px solid #dadada;
+    border-radius: 7px;
+}
+.glowing-border:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
