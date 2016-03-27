@@ -46,6 +46,10 @@ var app = {
       data: {order: '-createdAt'},
       success: function(para1){
         console.log("good for you", para1)
+        // iterate through the results 
+          // target and use parts of message
+            // send those to the specified area
+            console.log("para trooper", para1.results[0])
       },
       error: function(){
         console.log("you have failed")
