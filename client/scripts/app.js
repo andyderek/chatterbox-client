@@ -50,6 +50,7 @@ var app = {
           // target and use parts of message
             // send those to the specified area
             console.log("para trooper", para1.results[0])
+            $("#chats").append("<div><a class='username' href='#'>" + para1.results[0].username + "</a>" + " " + para1.results[0].text + " </div>");
       },
       error: function(){
         console.log("you have failed")
