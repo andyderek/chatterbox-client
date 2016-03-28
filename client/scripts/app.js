@@ -16,10 +16,16 @@ var app = {
     //get username
     // app.username = window.location.search.substr(10);
     app.fetch();
-    $(".username").on('click', app.addFriend);
+    $("#chats").click(app.addFriend);
     $(".submit").click(app.handleSubmit());
   }
 };
+
+  app.renderMessage = function(msg){
+    for(var i = 0; i < 10; i++){
+      $("#chats").append("<div><a href='#' onclick="+app.addFriend(msg[i].username)+">" + msg[i].username + "</a>" + " " + msg[i].text + " </div>");
+    }
+  }
 
   app.send = function(m, data, cb){
     $.ajax({
@@ -45,12 +51,12 @@ var app = {
       // displays data in the correct order
       data: {order: '-createdAt'},
       success: function(para1){
-        console.log("good for you", para1)
+        // console.log("good for you", para1)
         // iterate through the results 
           // target and use parts of message
             // send those to the specified area
-            console.log("para trooper", para1.results[0])
-            $("#chats").append("<div><a class='username' href='#'>" + para1.results[0].username + "</a>" + " " + para1.results[0].text + " </div>");
+            // $("#chats").append("<div><a class='username' href='#'>" + para1.results[0].username + "</a>" + " " + para1.results[0].text + " </div>");
+        app.renderMessage(para1.results);
       },
       error: function(){
         console.log("you have failed")
@@ -72,8 +78,10 @@ var app = {
     $("<div>" + message + "</div>").appendTo("#roomSelect")
   };
 
-  app.addFriend = function(username){
+  app.addFriend = function(friend){
       console.log("hello")
+      $("#friends").append(friend);
+    
   };
 
   app.submit = function(){
